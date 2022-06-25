@@ -19,10 +19,6 @@ class CreateTbRsApotek extends Migration
                 ->constrained('tb_kategori')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
-            $table->foreignId('id_fasilitas')
-                ->constrained('tb_fasilitas')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
             $table->string('nama', 255);
             $table->string('kota', 255);
             $table->string('alamat', 255);

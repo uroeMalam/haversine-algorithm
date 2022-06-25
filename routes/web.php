@@ -83,7 +83,7 @@ use App\Http\Controllers\RsApotekController;
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 
 // dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // fasilitas
 Route::get('/fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');

@@ -63,26 +63,26 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="{{('dashboard')}}">
+              <a class="nav-link {{ Request::is('/') ? 'active':''}}" href="{{('/')}}">
                 <i class="ni ni-shop text-primary"></i>
                 <span class="nav-link-text">Dashboards</span>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link active" href="{{('rsapotek')}}">
+              <a class="nav-link {{ Request::is('rsapotek') ? 'active':''}}" href="{{('rsapotek')}}">
                 <i class="ni ni-archive-2 text-green"></i>
                 <span class="nav-link-text">Rumah Sakit dan Apotik</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{('fasilitas')}}">
+              <a class="nav-link {{ Request::is('fasilitas') ? 'active':''}}" href="{{('fasilitas')}}">
                 <i class="ni ni-calendar-grid-58 text-red"></i>
                 <span class="nav-link-text">Master Fasilitas</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{('kategori')}}">
+              <a class="nav-link {{ Request::is('kategori') ? 'active':''}}" href="{{('kategori')}}">
                 <i class="ni ni-chart-pie-35 text-info"></i>
                 <span class="nav-link-text">Master Kategori</span>
               </a>

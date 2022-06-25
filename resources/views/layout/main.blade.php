@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="{{asset('template')}}/assets/css/argon.css?v=1.1.0" type="text/css">
 
   <!-- page css punya cerita -->
+  <link href="{{ asset('datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('sweetalert2\dist\sweetalert2.min.css') }}">
   @stack('page-css')
 </head>
 
@@ -203,9 +205,7 @@
 <!-- Header -->
 
     <!-- Page content  -->
-    <div class="container-fluid">
       @yield('content')
-    </div>
     <!-- page tampilan  -->
     @extends('layout/modal')
       <!-- Footer -->
@@ -253,7 +253,9 @@
   <!-- Demo JS - remove this in your project -->
   <script src="{{ asset('dist\js\my-script.js') }}"></script>
   <script src="{{asset('template')}}/assets/js/demo.min.js"></script>
-<!-- java scripts punya cerita -->
+  <!-- java scripts punya cerita -->
+  <script src="{{ asset('sweetalert2\dist\sweetalert2.min.js') }}"></script>
+  <script src="{{ asset('datatables.net\js\jquery.dataTables.min.js') }}"></script>
   @stack('page-scripts')
 </body>
 

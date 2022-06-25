@@ -18,6 +18,7 @@ class CreateTbFasilitas extends Migration
             $table->string('nama',255);
             $table->string('foto');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -94,8 +94,12 @@ Route::get('/fasilitas/edit/{id}', [FasilitasController::class, 'edit'])->name('
 
 // kategori
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+Route::get('/kategori/data-table', [KategoriController::class, 'DataTable'])->name('kategori_dataTable');
 Route::get('/kategori/tambah', [KategoriController::class, 'create'])->name('kategori_create');
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori_edit');
+Route::post('/kategori/update', [KategoriController::class, 'update'])->name('kategori_update');
+Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori_store');
+Route::delete('/kategori', [KategoriController::class, 'destroy'])->name('kategori_destroy');
 
 // rs Apotek
 Route::get('/rsapotek', [RsApotekController::class, 'index'])->name('rsapotek');

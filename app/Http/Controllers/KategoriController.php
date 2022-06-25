@@ -8,34 +8,18 @@ use Yajra\DataTables\DataTables;
 
 class KategoriController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data['title'] = "Kategori";
 
-        return view('kategori.m_kategori', $data);
+        return view('kategori.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('kategori.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -44,7 +28,6 @@ class KategoriController extends Controller
         ]);
 
         $filename= time().'.'.$request->foto->extension();
-        // $filename= date('YmdHi').$file->getClientOriginalName(); //incase you one original name
 
         $file= $request->file('foto');
         $file-> move(public_path('public/Image'), $filename);
@@ -56,23 +39,11 @@ class KategoriController extends Controller
         return response()->json(['status' => true, 'message' => 'berhasil']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {        
         $data['id'] = $id;

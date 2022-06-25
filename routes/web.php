@@ -85,11 +85,15 @@ Route::get('/login', [AuthController::class, 'index'])->name('login');
 // dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+
 // fasilitas
 Route::get('/fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');
+Route::get('/fasilitas/data-table', [FasilitasController::class, 'DataTable'])->name('fasilitas_dataTable');
 Route::get('/fasilitas/tambah', [FasilitasController::class, 'create'])->name('fasilitas_create');
 Route::get('/fasilitas/edit/{id}', [FasilitasController::class, 'edit'])->name('fasilitas_edit');
-
+Route::post('/fasilitas/update', [FasilitasController::class, 'update'])->name('fasilitas_update');
+Route::post('/fasilitas', [FasilitasController::class, 'store'])->name('fasilitas_store');
+Route::delete('/fasilitas', [FasilitasController::class, 'destroy'])->name('fasilitas_destroy');
 
 
 // kategori

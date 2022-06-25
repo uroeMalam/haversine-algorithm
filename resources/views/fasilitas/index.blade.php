@@ -160,7 +160,7 @@
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    hide_loading('#btnEdit', '', '', 'Edit');
+                    hide_loading('#btnEdit', '', 'full', 'Edit Data');
                     check_errors_withStyle(xhr.responseJSON.errors);
                 }
             });

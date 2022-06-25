@@ -105,11 +105,17 @@ Route::post('/kategori/update', [KategoriController::class, 'update'])->name('ka
 Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori_store');
 Route::delete('/kategori', [KategoriController::class, 'destroy'])->name('kategori_destroy');
 
+
 // rs Apotek
 Route::get('/rsapotek', [RsApotekController::class, 'index'])->name('rsapotek');
+Route::get('/rsapotek/data-table', [RsApotekController::class, 'DataTable'])->name('rsapotek_dataTable');
 Route::get('/rsapotek/tambah', [RsApotekController::class, 'create'])->name('rsapotek_create');
-Route::get('/rsapotek/detail/{id}', [RsApotekController::class, 'show'])->name('rsapotek_detail');
 Route::get('/rsapotek/edit/{id}', [RsApotekController::class, 'edit'])->name('rsapotek_edit');
+Route::get('/rsapotek/show/{id}', [RsApotekController::class, 'show'])->name('rsapotek_show');
+Route::post('/rsapotek/update', [RsApotekController::class, 'update'])->name('rsapotek_update');
+Route::post('/rsapotek', [RsApotekController::class, 'store'])->name('rsapotek_store');
+Route::delete('/rsapotek', [RsApotekController::class, 'destroy'])->name('rsapotek_destroy');
+
 
 
 

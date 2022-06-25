@@ -22,8 +22,8 @@ class CreateTbRsApotek extends Migration
             $table->string('nama', 255);
             $table->string('kota', 255);
             $table->string('alamat', 255);
-            $table->integer('lat');
-            $table->integer('long');
+            $table->string('lat',255);
+            $table->string('long',255);
             $table->timestamps();
             $table->softDeletes();
         });

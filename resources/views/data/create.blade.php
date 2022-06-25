@@ -3,61 +3,57 @@
         @csrf
         @method("POST")
         <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">                    
+                    <label for="id_kategori">Kategori</label>
+                    <select class="form-control" id="id_kategori" name="id_kategori">
+                        <option value="">Pilih</option>
+                        @foreach ($kategori as $j)
+                            <option value="{{ $j->id }}">{{ $j->nama }}</option>
+                        @endforeach
+                    </select>
+                    <small class="d-none text-danger" id="id_kategori"></small>
+                </div>
+            </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="judul">Nama Rumah Sakit/Apotek</label>
-                    <input type="text" class="form-control" id="judul" name="judul" value="" aria-describedby="judul">
-                    <small class="d-none text-danger" id="judul"></small>
+                    <label for="nama">Nama Rumah Sakit/Apotek</label>
+                    <input type="text" class="form-control" id="nama" name="nama" value="" aria-describedby="nama">
+                    <small class="d-none text-danger" id="nama"></small>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="judul">Daerah</label>
-                    <input type="text" class="form-control" id="judul" name="judul" value="" aria-describedby="judul">
-                    <small class="d-none text-danger" id="judul"></small>
+                    <label for="kota">Kota</label>
+                    <input type="text" class="form-control" id="kota" name="kota" value="" aria-describedby="kota">
+                    <small class="d-none text-danger" id="kota"></small>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="judul">Alamat</label>
-                    <input type="text" class="form-control" id="judul" name="judul" value="" aria-describedby="judul">
-                    <small class="d-none text-danger" id="judul"></small>
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control" id="alamat" name="alamat" value="" aria-describedby="alamat">
+                    <small class="d-none text-danger" id="alamat"></small>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="tanggal_mulai">Kategori</label>
-                    <input type="text" class="form-control" id="tanggal_mulai" name="tanggal_mulai" value="" aria-describedby="tanggal_mulai">
-                    <small class="d-none text-danger" id="tanggal_mulai"></small>
+                    <label for="lat">Latitut</label>
+                    <input type="text" class="form-control" id="lat" name="lat" value="" aria-describedby="lat">
+                    <small class="d-none text-danger" id="lat"></small>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="tanggal_berakhir">Fasilitas</label>
-                    <input type="text" class="form-control" id="tanggal_berakhir" name="tanggal_berakhir" value="" aria-describedby="tanggal_berakhir">
-                    <small class="d-none text-danger" id="tanggal_berakhir"></small>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="tanggal_mulai">Latitut</label>
-                    <input type="text" class="form-control" id="tanggal_mulai" name="tanggal_mulai" value="" aria-describedby="tanggal_mulai">
-                    <small class="d-none text-danger" id="tanggal_mulai"></small>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="tanggal_berakhir">Longtitut</label>
-                    <input type="text" class="form-control" id="tanggal_berakhir" name="tanggal_berakhir" value="" aria-describedby="tanggal_berakhir">
-                    <small class="d-none text-danger" id="tanggal_berakhir"></small>
+                    <label for="long">Longtitut</label>
+                    <input type="text" class="form-control" id="long" name="long" value="" aria-describedby="long">
+                    <small class="d-none text-danger" id="long"></small>
                 </div>
             </div>
         </div>

@@ -97,7 +97,7 @@ class RsApotekController extends Controller
                 return $btn;
             })
             ->addColumn('fasilitas', function ($row) {
-                $btn = '<button type="button" class="btn btn-sm btn-secondary" id="showFasilitas" data-id="' . $row->id . '">Fasilitas</i></button>';
+                $btn = '<button type="button" class="btn btn-sm btn-secondary" id="showFasilitas" data-id="' . $row->id . '">Informasi</i></button>';
                 return $btn;
             })
             ->rawColumns(['action','foto','fasilitas'])
@@ -157,29 +157,46 @@ class RsApotekController extends Controller
     public function fasilitas($id)
     {        
         $data['id'] = $id;
-        $data['fasilitas'] = fasilitas::all();
-        // $data['dataFasilitas'] = fasilitasrs::where(['id_rs_apotek'=>$id,'deleted_at'=>null])->get();
+        // $data['fasilitas'] = fasilitas::all();
         
-        // $data['fasilitas'] = fasilitas::select('tb_fasilitas_rs.id_fasilitas as id','tb_fasilitas.nama','tb_fasilitas_rs.keterangan')->rightJoin('tb_fasilitas_rs', 'tb_fasilitas_rs.id_fasilitas', '=', 'tb_fasilitas.id')->where(['tb_fasilitas_rs.id_rs_apotek'=>$id,'tb_fasilitas.deleted_at'=>null])->get();
+        $data['table']= fasilitas::all();
         return view('data.fasilitas', $data);
     }
 
     public function storeFasilitas(Request $request)
     {
-        $fasilitas = fasilitas::all();
-        $temp = [];
-        foreach ($fasilitas as $a) {
-            $data = [
-                'id_rs_apotek'=>$request->id_rs,
-                'id_fasilitas'=>$request->id_fasilitas[$a->id],
-                'keterangan'=>$request->value[$a->id],
-            ];
-            array_push($temp,$data);
-        };
-        // upsert jalan tapi di harus primary key
-        $delete = fasilitasrs::where('id_rs_apotek',$request->id_rs);
-        $delete->delete();
-        // fasilitasrs::upsert($temp,['keterangan']);
+        // $fasilitas = fasilitas::all();
+        // $temp = [];
+        // foreach ($fasilitas as $a) {
+        //     $data = [
+        //         'id_rs_apotek'=>$request->id_rs,
+        //         'id_fasilitas'=>$request->id_fasilitas[$a->id],
+        //         'keterangan'=>$request->value[$a->id],
+        //     ];
+        //     array_push($temp,$data);
+        // };
+        // // upsert jalan tapi di harus primary key
+        // $delete = fasilitasrs::where('id_rs_apotek',$request->id_rs);
+        // $delete->delete();
+        // // fasilitasrs::upsert($temp,['keterangan']);
+        // return response()->json(['status' => true, 'message' => "Berhasil Disimpan"]);
+        
+        $id_rs=$request->id_rs;
+        $pnjangData = sizeof($request->id_fasilitas);
+        $dataArray=[];       
+        for ($i=1; $i <= $pnjangData; $i++) { 
+            # code...
+            if($request->input("defaultCheck_$i")){
+                $dataArray[]=[
+                    'id_rs_apotek'=>$id_rs,
+                    'id_fasilitas'=>$request->id_fasilitas[$i-1],
+                    'keterangan'=> '-'
+                ];
+            }
+        }
+        
+        fasilitasrs::where('id_rs_apotek',$id_rs)->delete();
+        fasilitasrs::insert($dataArray);
         return response()->json(['status' => true, 'message' => "Berhasil Disimpan"]);
     }
 }

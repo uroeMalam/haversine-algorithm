@@ -86,6 +86,17 @@ Route::middleware(['auth'])->group(function () {
     
 });
 
+// menampilkan semua data rs di android
 Route::get('/api', [ApiController::class, 'index'])->name('api_data');
 
+// menampilkan semua data rs di android berdasarkan kategori
+Route::get('/api/{id}', [ApiController::class, 'category'])->name('api_data_category');
+
+// teknik menampilkan gambar melalui api
 Route::get('/api/img/{id}', [ApiController::class, 'img'])->name('api_img');
+
+// menampilkan semua data gambar rs di android
+Route::get('/api/imagesCarousel/{id}', [ApiController::class, 'imgCarousel'])->name('api_img_carousel');
+
+// menampilkan semua data fasilitas untuk tiap tiap rs di android
+Route::get('/api/fasilitasList/{id}', [ApiController::class, 'fasilitasList'])->name('api_fasilitasList');

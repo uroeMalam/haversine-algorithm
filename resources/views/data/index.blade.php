@@ -34,7 +34,7 @@
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th width="10%">Photo</th>
-                    <th width="10%">fasilitas</th>
+                    <th width="10%">Informasi</th>
                     <th width="10%">Actions</th>
                 </tr>
                 </thead>
@@ -67,7 +67,21 @@
             ]
         });
 
-        // insice modal box
+        
+        // Select All or Deselect All 
+        $(document).on('click', '#selectAll',function (e) {
+            var select=document.getElementById('selectAll');
+            var inputs = document.querySelectorAll('.check');
+                for (var i = 0; i < inputs.length; i++) {   
+                    if (select.checked == true){
+                        inputs[i].checked = true;
+                    }else{
+                        inputs[i].checked = false;
+                    }
+                }   
+        });
+
+        // incase modal box
         $("#modalDialog").on('show.bs.modal',function (e) {
             // let id = document.getElementById("id_rs").value
             // data table show photo
@@ -298,8 +312,8 @@
                 type: 'get',
                 url: "/rsapotek/fasilitas/"+id,
                 success: function(data) {
-                hide_loading(element, '', 'full', 'Fasilitas');
-                $('#modalDialogLabel').html("Managemen fasilitas")
+                hide_loading(element, '', 'full', 'Informasi');
+                $('#modalDialogLabel').html("Managemen Informasi")
                 $('#modalDialogSize').addClass("modal-lg")
                 $('#modalDialogData').html(data);
                 $('#modalDialog').modal({
